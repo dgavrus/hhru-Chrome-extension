@@ -1,19 +1,19 @@
 {
-    "name" : "Hello world",
+    "name" : "Hip-hop.ru message expander",
 	"manifest_version" : 2,
-    "version" : "0.1", 
-    "description" : "This is a simple chrome extension",
+    "version" : "0.12",
+    "description" : "This extension shows messages of users, who are banned from topic",
     "content_scripts" : [
         {
-            "matches" : ["http://www.hip-hop.ru/forum/"],
+            "matches" : ["http://www.hip-hop.ru/forum/*", "http://hip-hop.ru/forum/*"],
+            "exclude_matches" : ["http://www.hip-hop.ru/forum/search*", "http://hip-hop.ru/forum/search*"],
             "js" : ["thirdParty/jquery-2.1.1.min.js", "alertText.js"],
             "css" : ["css/switch.css"]
-
         }
     ],
 	"permissions" : ["background"],
 	"browser_action" : {
-        "default_title" : "Hello world!!!",
+        "default_title" : "Hidden message expander",
         "default_icon" : "hhrulogo_128x73.png",
         "default_popup" : "popup.html"
     }
