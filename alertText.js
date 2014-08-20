@@ -1,2 +1,11 @@
+getMessage = function(){
 
-    alert($(".hi").text())
+}
+
+getBannedText = function(){
+
+}
+
+getBannedMessageId = function(){
+    alert("Called!") 
+}()
