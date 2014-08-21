@@ -2,6 +2,7 @@ getFormData = function(html){
     var editor = $(html).find(".bginput.fblue.resizable");
     editor.get(0).innerHTML = editor.get(0).innerText = editor.get(0).innerText + "foo";
     var form = $(html).find("form[name=vbform]");
+    form[0][0].innerHTML = form[0][0].innerText = form[0][0].innerText + "foo";
     return form.serialize();
 }
 
@@ -21,7 +22,7 @@ getQuoteText = function(messageId){
         url: urlPreview,
         async: false,
         data: formData,
-        headers: {"referrer": urlPreview}
+        headers: {"referrer": urlQuote}
     });
     var msg = $(requestPreview.responseText).find(".qmessage").text();
     return messageText;
