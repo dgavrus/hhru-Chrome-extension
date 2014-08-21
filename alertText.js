@@ -16,16 +16,17 @@ getQuoteText = function(messageId){
     var messageText = $(requestQuote.responseText).find(".bginput.fblue.resizable").text();
     $(requestQuote.responseText).find(".bginput.fblue.resizable").text(messageText + "foo");
     var formData = getFormData(requestQuote.responseText);
+    formData += "&preview=Предварительный просмотр сообщения";
     var urlPreview = "http://www.hip-hop.ru/forum/newreply.php?do=postreply&t=" + $("#qr_threadid").get(0).value;
     var requestPreview = $.ajax({
         type: "POST",
         url: urlPreview,
         async: false,
-        data: formData,
-        headers: {"referrer": urlQuote}
+        data: formData
+
     });
-    var msg = $(requestPreview.responseText).find(".qmessage").text();
-    return messageText;
+    var msg = $(requestPreview.responseText).find(".qmessage")[0];
+    return msg;
 }
 
 getBannedMessagesIdArray = function () {
@@ -42,7 +43,6 @@ getBannedMessagesIdArray = function () {
 }
 
 showBannedMessages = function(){
-    alert("Working...");
     var bannedMessages = getBannedMessagesIdArray();
     var showMessage = function(messageId, index, array){
         var id = "post_message_" + messageId;
@@ -50,8 +50,8 @@ showBannedMessages = function(){
         postBlock.removeClass("thread_ban_text");
         postBlock.attr("style", "padding-top:5px");
         var originalMessageText = getQuoteText(messageId);
-        postBlock.text(originalMessageText);
+        postBlock.html(originalMessageText);
+        alert("Appended!")
     }
     bannedMessages.forEach(showMessage);
-    alert("Done!")
 }()
