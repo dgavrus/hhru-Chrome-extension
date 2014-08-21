@@ -4,7 +4,7 @@
     "version" : "0.12",
     "description" : "This extension shows messages of users, who are banned from topic",
     "background" : {
-        "scripts": ["jquery-2.1.1.min.js", "switchHandler.js"]
+        "scripts": ["thirdParty/jquery-2.1.1.min.js", "switchHandler.js"]
     },
     "content_scripts" : [
         {
