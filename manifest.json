@@ -4,8 +4,12 @@
     "version" : "0.12",
     "description" : "This extension shows messages of users, who are banned from topic",
     "background" : {
-        "scripts": ["thirdParty/jquery-2.1.1.min.js", "switchHandler.js"]
+        "scripts": ["thirdParty/jquery-2.1.1.min.js", "switchHandler.js"],
+        "persistent": false
     },
+    "permissions": [
+        "tabs"
+    ],
     "content_scripts" : [
         {
             "matches" : ["http://www.hip-hop.ru/forum/*", "http://hip-hop.ru/forum/*"],
@@ -17,7 +21,7 @@
 	"permissions" : ["background"],
 	"browser_action" : {
         "default_title" : "Hidden message expander",
-        "default_icon" : "hhrulogo_128x73.png",
+        "default_icon" : "19x19.png",
         "default_popup" : "popup.html"
     }
 }
